@@ -1,0 +1,11 @@
+schema: http://localhost:8080/v1/graphql
+documents:
+  - "pages/**/*.ts"
+  - "pages/**/*.tsx"
+  - "components/**/*.ts"
+  - "components/**/*.tsx"
+  - "graphql/query-files-examples/*.graphql"
+  - "!graphql/generated/graphql-codegen/**/*"
+generates:
+  graphql/generated/graphql-codegen/:
+    preset: gql-tag-operations-preset

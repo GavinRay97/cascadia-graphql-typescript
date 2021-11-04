@@ -1,9 +1,23 @@
+import { useQuery } from "@apollo/client"
 import type { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
+import { gql } from "../graphql/generated/graphql-codegen"
 import styles from "../styles/Home.module.css"
 
+const exampleQuery = gql(/* GraphQL */ `
+  query TestQuery {
+    user {
+      id
+      email
+    }
+  }
+`)
+
 const Home: NextPage = () => {
+  const { loading, data, error } = useQuery(exampleQuery)
+
+  console.log({ loading, data, error })
   return (
     <div className={styles.container}>
       <Head>

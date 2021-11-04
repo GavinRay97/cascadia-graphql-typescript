@@ -17,6 +17,11 @@ services:
       - "postgres"
     restart: always
     environment:
+      ## [Gavin] NOTE: Set Hasura up for single-database mode, by giving it the old HASURA_GRAPHQL_DATABASE_URL config
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
+
+      ## DEFAULT STUFF BELOW
+      #
       ## postgres database to store Hasura metadata
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs

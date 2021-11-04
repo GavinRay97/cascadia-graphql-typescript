@@ -5,18 +5,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "------------": "------------",
+    "@comment hasura-console": [
+      "Launches the CLI version of the web console, which automatically creates database migrations",
+      "and metadata file updates when you make changes on the web dashboard"
+    ],
+    "hasura-console": "cd ./hasura && npx hasura console",
+    "-----------": "------------",
+    "@comment zeus-generate-gql-sdk": [
+      "Uses graphql-zeus to autogenerate a strongly-typed SDK for any GraphQL endpoint",
+      "This is a bit different than how tools like graphql-code-generator work, which we'll cover during the workshop"
+    ],
+    "zeus-generate-gql-sdk": "zeus http://localhost:8080/v1/graphql ./graphql/generated --ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
+    "graphql": "^16.0.1",
+    "graphql-tag": "^2.12.5",
     "next": "12.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.2",
+    "@graphql-codegen/gql-tag-operations-preset": "^1.2.0",
     "@types/node": "16.11.6",
     "@types/react": "17.0.34",
     "eslint": "7",
     "eslint-config-next": "12.0.2",
+    "graphql-zeus": "^3.3.2",
+    "hasura-cli": "^2.0.9",
     "typescript": "4.4.4"
   }
 }
